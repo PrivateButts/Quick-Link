@@ -3,6 +3,7 @@
 	"displayName": "Quick Link",
 	"description": "Quickly puts the cruft around selected text to make it a link",
 	"version": "0.0.1",
+	"publisher": "CrunchSlashDev",
 	"engines": {
 		"vscode": "^1.30.0"
 	},
@@ -47,5 +48,9 @@
 		"tslint": "^5.8.0",
 		"@types/node": "^8.10.25",
 		"@types/mocha": "^2.2.42"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://dev.azure.com/rbutts/Quick%20Link/_git/Quick%20Link"
 	}
 }
