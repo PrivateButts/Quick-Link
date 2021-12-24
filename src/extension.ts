@@ -75,8 +75,7 @@ export function activate(context: vscode.ExtensionContext) {
 		let href = await vscode.window.showInputBox(
 			{
 				placeHolder: "https://privatebutts.dev",
-				prompt: "Destination (href attribute)?",
-				title: "QLHREFInput"
+				prompt: "Destination (href attribute)?"
 			},
 		);
 
@@ -87,8 +86,7 @@ export function activate(context: vscode.ExtensionContext) {
 		let content = await vscode.window.showInputBox(
 			{
 				placeHolder: "Visit my website!",
-				prompt: "Display Text?",
-				title: "QLDisplayInput"
+				prompt: "Display Text?"
 			},
 		);
 
@@ -96,8 +94,57 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 
+		let targets:vscode.QuickPickItem[] = [
+			{
+				label: 'Same Frame (no target)',
+			},
+			{
+				label: 'New Tab or Window',
+				detail: '_blank'
+			},
+			{
+				label: 'Parent Frame',
+				detail: '_parent'
+			},
+			{
+				label: 'Top Frame',
+				detail: '_top'
+			},
+			{
+				label: 'Custom Frame'
+			}
+
+		];
+
+		let target = await vscode.window.showQuickPick(
+			targets,
+			{
+				title: "Target?"
+			}
+		);
+
+		let text = "";
+		switch(target) {
+			case targets[0]:
+				text = `<a href="${href}">${content}</a>`;
+				break;
+			case targets[4]:
+				let t = await vscode.window.showInputBox(
+					{
+						placeHolder: "customframe",
+						prompt: "Frame?"
+					},
+				);
+				text = `<a href="${href}" target="${t}">${content}</a>`;
+				break;
+			default:
+				text = `<a href="${href}" target="${target?.detail}">${content}</a>`;
+				break;
+		}
+
+
 		multiReplace(v => {
-			return `<a href="${href}">${content}</a>`;
+			return text;
 		});
 	});
 	
