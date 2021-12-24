@@ -5,7 +5,7 @@
 	"publisher": "CrunchSlashDev",
 	"version": "0.0.4",
 	"preview": false,
-	"icon": "./img/logo.png",
+	"icon": "img/logo128.png",
 	"galleryBanner":{
 		"color": "#2D8507",
 		"theme": "dark"
