@@ -13,7 +13,8 @@ Currently this extension supports the following replacements:
     * SMS
     * Fax
     * Call To
-* Link (Just a generic replacer for everything else)
+* A Link Builder, which is a quick wizard to run through link creation
+* Link In Place (Just a generic replacer for everything else)
 
 ## Future Plans
 
@@ -23,6 +24,10 @@ Currently this extension supports the following replacements:
 
 ## Release Notes
 
+### 0.0.5
+
+Link Builder and target support
+
 ### 0.0.3
 
 Multicursor support! Sorry this took so long. I've been busy with other half finished projects
@@ -30,7 +35,3 @@ Multicursor support! Sorry this took so long. I've been busy with other half fin
 ### 0.0.2
 
 Added more tel-related protocols
-
-### 0.0.1
-
-Working prototype

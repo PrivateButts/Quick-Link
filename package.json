@@ -3,7 +3,7 @@
 	"displayName": "Quick Link",
 	"description": "Quickly puts the cruft around selected text to make it a link",
 	"publisher": "CrunchSlashDev",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"preview": false,
 	"icon": "img/logo128.png",
 	"galleryBanner":{
