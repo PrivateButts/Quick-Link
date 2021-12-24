@@ -13,6 +13,9 @@
 	"activationEvents": [
 		"onCommand:extension.quick-link.mailto",
 		"onCommand:extension.quick-link.tel",
+		"onCommand:extension.quick-link.sms",
+		"onCommand:extension.quick-link.fax",
+		"onCommand:extension.quick-link.callto",
 		"onCommand:extension.quick-link.link"
 	],
 	"main": "./dist/extension.js",
@@ -26,6 +29,21 @@
 			{
 				"command": "extension.quick-link.tel",
 				"title": "tel",
+				"category": "Quick Link"
+			},
+			{
+				"command": "extension.quick-link.sms",
+				"title": "sms",
+				"category": "Quick Link"
+			},
+			{
+				"command": "extension.quick-link.fax",
+				"title": "fax",
+				"category": "Quick Link"
+			},
+			{
+				"command": "extension.quick-link.callto",
+				"title": "callto",
 				"category": "Quick Link"
 			},
 			{
