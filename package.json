@@ -1,11 +1,11 @@
 {
-	"name": "quick-link",
+  "name": "quick-link",
 	"displayName": "Quick Link",
 	"description": "Quickly puts the cruft around selected text to make it a link",
-	"version": "0.0.1",
-	"publisher": "CrunchSlashDev",
+	"publisher": "PrivateButts",
+	"version": "0.0.3",
 	"engines": {
-		"vscode": "^1.30.0"
+		"vscode": "^1.63.0"
 	},
 	"categories": [
 		"Other"
@@ -15,7 +15,7 @@
 		"onCommand:extension.quick-link.tel",
 		"onCommand:extension.quick-link.link"
 	],
-	"main": "./out/extension.js",
+	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
@@ -36,21 +36,34 @@
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"typescript": "^3.1.4",
-		"vscode": "^1.1.25",
-		"tslint": "^5.8.0",
-		"@types/node": "^8.10.25",
-		"@types/mocha": "^2.2.42"
+		"@types/vscode": "^1.63.0",
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@typescript-eslint/eslint-plugin": "^5.1.0",
+		"@typescript-eslint/parser": "^5.1.0",
+		"eslint": "^8.1.0",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.3",
+		"typescript": "^4.4.4",
+		"ts-loader": "^9.2.5",
+		"webpack": "^5.52.1",
+		"webpack-cli": "^4.8.0",
+		"@vscode/test-electron": "^1.6.2"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://dev.azure.com/rbutts/Quick%20Link/_git/Quick%20Link"
+		"url": "https://github.com/PrivateButts/Quick-Link"
 	}
 }
