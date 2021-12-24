@@ -22,7 +22,8 @@
 		"onCommand:extension.quick-link.sms",
 		"onCommand:extension.quick-link.fax",
 		"onCommand:extension.quick-link.callto",
-		"onCommand:extension.quick-link.link"
+		"onCommand:extension.quick-link.link-in-place",
+		"onCommand:extension.quick-link.link-builder"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -34,17 +35,17 @@
 			},
 			{
 				"command": "extension.quick-link.tel",
-				"title": "tel",
+				"title": "Tel",
 				"category": "Quick Link"
 			},
 			{
 				"command": "extension.quick-link.sms",
-				"title": "sms",
+				"title": "SMS",
 				"category": "Quick Link"
 			},
 			{
 				"command": "extension.quick-link.fax",
-				"title": "fax",
+				"title": "Fax",
 				"category": "Quick Link"
 			},
 			{
@@ -53,8 +54,13 @@
 				"category": "Quick Link"
 			},
 			{
-				"command": "extension.quick-link.link",
-				"title": "link",
+				"command": "extension.quick-link.link-in-place",
+				"title": "Link In Place",
+				"category": "Quick Link"
+			},
+			{
+				"command": "extension.quick-link.link-builder",
+				"title": "Link Builder",
 				"category": "Quick Link"
 			}
 		]

@@ -63,13 +63,45 @@ export function activate(context: vscode.ExtensionContext) {
 	
 	context.subscriptions.push(fax);
 
-	let link = vscode.commands.registerCommand('extension.quick-link.link', () => {
+	let linkInPlace = vscode.commands.registerCommand('extension.quick-link.link-in-place', () => {
 		multiReplace(v => {
 			return `<a href="${v}">${v}</a>`;
 		});
 	});
 	
-	context.subscriptions.push(link);
+	context.subscriptions.push(linkInPlace);
+
+	let linkCustom = vscode.commands.registerCommand('extension.quick-link.link-builder', async () => {
+		let href = await vscode.window.showInputBox(
+			{
+				placeHolder: "https://privatebutts.dev",
+				prompt: "Destination (href attribute)?",
+				title: "QLHREFInput"
+			},
+		);
+
+		if(href === undefined){
+			return;
+		}
+
+		let content = await vscode.window.showInputBox(
+			{
+				placeHolder: "Visit my website!",
+				prompt: "Display Text?",
+				title: "QLDisplayInput"
+			},
+		);
+
+		if(content === undefined){
+			return;
+		}
+
+		multiReplace(v => {
+			return `<a href="${href}">${content}</a>`;
+		});
+	});
+	
+	context.subscriptions.push(linkCustom);
 	console.log('Quick Link has been installed');
 }
 
